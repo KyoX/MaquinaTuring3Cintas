@@ -34,6 +34,8 @@ namespace TM3Cintas {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^  button1;
+	protected: 
 
 	private:
 		/// <summary>
@@ -48,19 +50,34 @@ namespace TM3Cintas {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
+			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(243, 115);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(75, 23);
+			this->button1->TabIndex = 0;
+			this->button1->Text = L"button1";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(852, 337);
+			this->Controls->Add(this->button1);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+				 MessageBox::Show("Hola mundo");
+			 }
 	};
 }
 
