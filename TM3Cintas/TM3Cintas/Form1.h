@@ -1,4 +1,9 @@
 #pragma once
+#include "StdAfx.h"
+#include <iostream>
+#include <fstream>
+
+
 
 namespace TM3Cintas {
 
@@ -8,6 +13,7 @@ namespace TM3Cintas {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Resumen de Form1
@@ -110,6 +116,7 @@ namespace TM3Cintas {
 			this->cargarArchivoToolStripMenuItem->Name = L"cargarArchivoToolStripMenuItem";
 			this->cargarArchivoToolStripMenuItem->Size = System::Drawing::Size(152, 22);
 			this->cargarArchivoToolStripMenuItem->Text = L"Cargar archivo";
+			this->cargarArchivoToolStripMenuItem->Click += gcnew System::EventHandler(this, &Form1::cargarArchivoToolStripMenuItem_Click);
 			// 
 			// salirToolStripMenuItem
 			// 
@@ -146,6 +153,7 @@ namespace TM3Cintas {
 			this->button1->TabIndex = 2;
 			this->button1->Text = L"Ejecutar TM";
 			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
 			// 
 			// label1
 			// 
@@ -240,6 +248,22 @@ namespace TM3Cintas {
 	private: System::Void salirToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
 				 Application::Exit();
 			 }
+private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+		 }
+private: System::Void cargarArchivoToolStripMenuItem_Click(System::Object^  sender, System::EventArgs^  e) {
+			 
+			 ifstream entrada ("hola.txt");
+	char c[4];
+
+	if(entrada.good())
+	{
+		cout<<"Exito";
+		entrada >> c;
+		entrada.close();
+		cout<<c<<endl;
+	
+	}
+		 }
 };
 }
 
